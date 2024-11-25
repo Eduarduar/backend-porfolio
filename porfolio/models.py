@@ -121,6 +121,15 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
         validators=[MaxLengthValidator(255, _("Photo URL is too long."))],
         help_text=_("URL of the user's profile photo."),
     )
+    # link de cv
+    us_cv = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True,
+        verbose_name=_("CV"),
+        validators=[MaxLengthValidator(255, _("CV URL is too long."))],
+        help_text=_("URL of the user's CV."),
+    )
     us_cr_date = models.DateTimeField(
         auto_now_add=True,
         verbose_name=_("Creation Date"),
